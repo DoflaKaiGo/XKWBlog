@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8me-bJ-gnq">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Base TabbarVC-->
+        <scene sceneID="bJt-yO-t7c">
+            <objects>
+                <tabBarController id="8me-bJ-gnq" customClass="BaseTabbarVC" customModule="XKWBDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleAspectFit" insetsLayoutMarginsFromSafeArea="NO" id="Vkx-4r-cIg">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" red="1" green="0.40226574279999999" blue="0.14936867719999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="Iv1-fi-Iuu" kind="relationship" relationship="viewControllers" id="0Ly-Vh-qBV"/>
+                        <segue destination="9Px-kl-sWn" kind="relationship" relationship="viewControllers" id="kbO-G9-Rb5"/>
+                        <segue destination="9UE-kw-qfk" kind="relationship" relationship="viewControllers" id="rnK-1I-if2"/>
+                        <segue destination="lvY-Rx-AVU" kind="relationship" relationship="viewControllers" id="wyb-qy-ZNN"/>
+                        <segue destination="y6g-VA-EA3" kind="relationship" relationship="viewControllers" id="s6c-Am-Fsx"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="tQc-ip-kHT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-535" y="-6"/>
+        </scene>
+        <!--MainVC-->
+        <scene sceneID="O8U-yE-HpL">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MainVC" id="Iv1-fi-Iuu" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="8JW-9d-jOk"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zLx-Hb-Lpu" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1112" y="-294"/>
+        </scene>
+        <!--MessageVC-->
+        <scene sceneID="din-Du-ZiJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="MessageVC" id="9Px-kl-sWn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Hqo-pT-0fE"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="uL4-Jq-LwH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1092" y="-111"/>
+        </scene>
+        <!--DiscoverVC-->
+        <scene sceneID="PGC-HQ-jld">
+            <objects>
+                <viewControllerPlaceholder storyboardName="DiscoverVC" id="9UE-kw-qfk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="3pa-QS-Opw"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GgR-Oi-777" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1093" y="44"/>
+        </scene>
+        <!--ProfileVC-->
+        <scene sceneID="Ts5-EJ-m3v">
+            <objects>
+                <viewControllerPlaceholder storyboardName="ProfileVC" id="lvY-Rx-AVU" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Item" id="Eqh-c9-rxF"/>
+                </viewControllerPlaceholder>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="e6Y-ap-HpZ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1113" y="206"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="8n8-Q0-2lR">
+            <objects>
+                <viewController id="y6g-VA-EA3" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="YXH-1V-yyO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="eDV-oa-BIO"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="tabbar_compose_button" id="khA-WE-huT"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="X2d-0p-ipF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="802" y="741"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="tabbar_compose_button" width="64" height="44"/>
+    </resources>
+</document>
