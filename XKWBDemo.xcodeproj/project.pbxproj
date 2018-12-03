@@ -31,6 +31,13 @@
 		C18ECB7721B0D8E00072FEE0 /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB7621B0D8E00072FEE0 /* VideoVC.swift */; };
 		C18ECB7921B112060072FEE0 /* MainViewHeadIeam.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB7821B112060072FEE0 /* MainViewHeadIeam.swift */; };
 		C18ECB7B21B112250072FEE0 /* MainViewHeadIeam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB7A21B112250072FEE0 /* MainViewHeadIeam.xib */; };
+		C18ECB7D21B12E5A0072FEE0 /* CommonHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB7C21B12E5A0072FEE0 /* CommonHelper.swift */; };
+		C18ECB8121B178790072FEE0 /* PresentVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB7F21B178790072FEE0 /* PresentVC.swift */; };
+		C18ECB8221B178790072FEE0 /* PresentVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB8021B178790072FEE0 /* PresentVC.xib */; };
+		C18ECB8621B179C00072FEE0 /* RightCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8421B179C00072FEE0 /* RightCustomCell.swift */; };
+		C18ECB8721B179C00072FEE0 /* RightCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */; };
+		C18ECB8921B181F40072FEE0 /* CustomPresentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */; };
+		C18ECB8B21B3F1E10072FEE0 /* PresentAnimationor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -60,6 +67,13 @@
 		C18ECB7621B0D8E00072FEE0 /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		C18ECB7821B112060072FEE0 /* MainViewHeadIeam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewHeadIeam.swift; sourceTree = "<group>"; };
 		C18ECB7A21B112250072FEE0 /* MainViewHeadIeam.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewHeadIeam.xib; sourceTree = "<group>"; };
+		C18ECB7C21B12E5A0072FEE0 /* CommonHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonHelper.swift; sourceTree = "<group>"; };
+		C18ECB7F21B178790072FEE0 /* PresentVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentVC.swift; sourceTree = "<group>"; };
+		C18ECB8021B178790072FEE0 /* PresentVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PresentVC.xib; sourceTree = "<group>"; };
+		C18ECB8421B179C00072FEE0 /* RightCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RightCustomCell.swift; sourceTree = "<group>"; };
+		C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightCustomCell.xib; sourceTree = "<group>"; };
+		C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentController.swift; sourceTree = "<group>"; };
+		C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationor.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +121,7 @@
 				C10F94C321AFB74000C59409 /* Main.storyboard */,
 				C10F94C621AFB74100C59409 /* Assets.xcassets */,
 				C10F94C821AFB74100C59409 /* LaunchScreen.storyboard */,
+				C18ECB7C21B12E5A0072FEE0 /* CommonHelper.swift */,
 			);
 			path = Other;
 			sourceTree = "<group>";
@@ -114,6 +129,7 @@
 		C10F94D221AFB75700C59409 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C18ECB7E21B1784B0072FEE0 /* PresentVC */,
 				C10F94E421AFBB2600C59409 /* MainVC.storyboard */,
 				C10F94E021AFB84A00C59409 /* MainVC.swift */,
 				C10F94F521AFE01C00C59409 /* View */,
@@ -201,6 +217,27 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		C18ECB7E21B1784B0072FEE0 /* PresentVC */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB8321B179790072FEE0 /* View */,
+				C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */,
+				C18ECB7F21B178790072FEE0 /* PresentVC.swift */,
+				C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */,
+				C18ECB8021B178790072FEE0 /* PresentVC.xib */,
+			);
+			path = PresentVC;
+			sourceTree = "<group>";
+		};
+		C18ECB8321B179790072FEE0 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB8421B179C00072FEE0 /* RightCustomCell.swift */,
+				C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -260,8 +297,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				C18ECB7421B0D8AD0072FEE0 /* VideoVC.storyboard in Resources */,
+				C18ECB8721B179C00072FEE0 /* RightCustomCell.xib in Resources */,
 				C10F94CA21AFB74100C59409 /* LaunchScreen.storyboard in Resources */,
 				C10F94F221AFC25A00C59409 /* Images.xcassets in Resources */,
+				C18ECB8221B178790072FEE0 /* PresentVC.xib in Resources */,
 				C10F94ED21AFBB7400C59409 /* ProfileVC.storyboard in Resources */,
 				C10F94C721AFB74100C59409 /* Assets.xcassets in Resources */,
 				C10F94EB21AFBB5F00C59409 /* DiscoverVC.storyboard in Resources */,
@@ -281,17 +320,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18ECB8621B179C00072FEE0 /* RightCustomCell.swift in Sources */,
 				C10F94D921AFB7D500C59409 /* ProfileVC.swift in Sources */,
 				C10F94F721AFE03D00C59409 /* NaviTitleView.swift in Sources */,
 				C10F94DF21AFB82700C59409 /* BaseTabbarVC.swift in Sources */,
 				C10F94E321AFBABB00C59409 /* BaseNaviVC.swift in Sources */,
+				C18ECB8121B178790072FEE0 /* PresentVC.swift in Sources */,
 				C10F94FB21B0BBF200C59409 /* BaseVC.swift in Sources */,
 				C18ECB7721B0D8E00072FEE0 /* VideoVC.swift in Sources */,
+				C18ECB8921B181F40072FEE0 /* CustomPresentController.swift in Sources */,
 				C10F94DD21AFB7F700C59409 /* MessageVC.swift in Sources */,
 				C10F94C021AFB74000C59409 /* AppDelegate.swift in Sources */,
 				C10F94FE21B0BC5300C59409 /* VistorView.swift in Sources */,
 				C10F94DB21AFB7EA00C59409 /* DiscoverVC.swift in Sources */,
+				C18ECB7D21B12E5A0072FEE0 /* CommonHelper.swift in Sources */,
 				C10F94E121AFB84A00C59409 /* MainVC.swift in Sources */,
+				C18ECB8B21B3F1E10072FEE0 /* PresentAnimationor.swift in Sources */,
 				C18ECB7921B112060072FEE0 /* MainViewHeadIeam.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -12,6 +12,7 @@ class BaseNaviVC: UINavigationController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.navigationBar.isTranslucent = false
                 self.tabBarItem.selectedImage = (self.tabBarItem.selectedImage!).withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
                 self.tabBarItem.image =   (self.tabBarItem.image!).withRenderingMode(UIImage.RenderingMode.alwaysOriginal)
     }

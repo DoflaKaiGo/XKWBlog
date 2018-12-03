@@ -7,16 +7,21 @@
 //
 
 import UIKit
-
 class MainVC: BaseVC {
-
-
+    // MArk: - 懒加载
+    private  var publishBtnSelected : Bool = false // 发布按钮的点击状态
+    private lazy var  presentAnimationor  : PresentAnimationor = PresentAnimationor()
+    lazy  var  presentVC = PresentVC()
+    private  lazy var  layout  = setupCollectionViewLayout()
+   private  lazy  var   collectionView : UICollectionView? = setupCollectionView()
+   private  lazy var tableView: UITableView? = setupTableView()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        setNavibarBtn();
         visitorV.setAnimation()
         if !isLogin {return}
-        
+           setNavibarBtn();
+         view.addSubview(tableView!);
     }
 }
 
@@ -25,12 +30,11 @@ extension MainVC{
     //设置左右两边按钮,并使按钮图片保持原色  ** .withRenderingMode(.alwaysOriginal)
     private func setNavibarBtn(){
         self.navigationItem.leftBarButtonItem = UIBarButtonItem(image:#imageLiteral(resourceName: "compose_toolbar_picture") .withRenderingMode(.alwaysOriginal), style: UIBarButtonItem.Style.done, target: self, action: #selector(clickLeftBtn));
-        let rightBtnOne = UIBarButtonItem(image:#imageLiteral(resourceName: "tabbar_message_center_highlighted") .withRenderingMode(.alwaysOriginal), style: UIBarButtonItem.Style.done, target: self, action: #selector(clickRightOneBtn));
-        let rightBtnTwo = UIBarButtonItem(image:#imageLiteral(resourceName: "navigationbar_pop_highlighted") .withRenderingMode(.alwaysOriginal), style: UIBarButtonItem.Style.done, target: self, action: #selector(clickRightTwoBtn));
+        let rightBtnOne = UIBarButtonItem(image:#imageLiteral(resourceName: "tabbar_compose_icon_add_highlighted") .withRenderingMode(.alwaysOriginal), style: UIBarButtonItem.Style.done, target: self, action: #selector(clickRightOneBtn));
+        let rightBtnTwo = UIBarButtonItem(image:#imageLiteral(resourceName: "tabbar_message_center_highlighted") .withRenderingMode(.alwaysOriginal), style: UIBarButtonItem.Style.done, target: self, action: #selector(clickRightTwoBtn));
         self.navigationItem.rightBarButtonItems = [rightBtnOne,rightBtnTwo];
         setNaviTitleView();
     }
-    
     private func setNaviTitleView(){
         let  naviTitleV = NaviTitleView.CreatV()
         naviTitleV.tapBtnCallback =   {( tag : NSInteger , state : Bool ) in
@@ -47,16 +51,100 @@ extension MainVC{
     }
 }
 
+// MArk: - CollectionView 的代理方法
+extension MainVC :UICollectionViewDelegate,UICollectionViewDataSource{
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 10
+    }
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+          let cell:MainViewHeadIeam = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! MainViewHeadIeam
+        return cell;
+    }
+    //点击 iteam
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print(indexPath.row)
+    }
+}
+
+// MArk: - UITableView 的代理方法
+extension MainVC: UITableViewDelegate,UITableViewDataSource{
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 25
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        var   cell = tableView.dequeueReusableCell(withIdentifier: "customCell")
+        if cell == nil{
+             cell =  UITableViewCell(style: .default, reuseIdentifier: "customCell")
+        }
+            cell!.textLabel?.text = "\(indexPath.row)"
+        return cell!
+    }
+}
+
     //MARK: - 按钮点击事件
 extension MainVC{
-
     @objc func clickLeftBtn(){
         print("点击了左边按钮")
     }
     @objc func clickRightOneBtn(){
-        print("点击了右边第一个按钮")
+        publishBtnSelected = !publishBtnSelected
+        presentVC.modalPresentationStyle = .custom
+        presentVC.transitioningDelegate = presentAnimationor
+        presentAnimationor.presentVCFrame = CGRect(x: ScreenInfo.ScreenWidth - 145, y: ScreenInfo.navigationHeight + 10, width: 140, height: 180);
+        //弹出选项列表
+        present(presentVC, animated: true, completion: nil);
     }
     @objc func clickRightTwoBtn(){
         print("点击了右边第二个按钮")
+    }
+}
+
+// lazy UI Func
+extension MainVC {
+    private func setupCollectionViewLayout() -> UICollectionViewLayout{
+        let layout = UICollectionViewFlowLayout.init()
+        layout.itemSize = CGSize(width: 100, height: 115)
+        layout.minimumLineSpacing = 5
+        layout.minimumInteritemSpacing = 5
+        layout.scrollDirection = .horizontal
+        layout.sectionInset = UIEdgeInsets.init(top: 0, left: 5, bottom: 0, right: 5)
+        // 设置分区头视图和尾视图宽高
+        // layout.headerReferenceSize = CGSize.init(width: ScreenInfo.ScreenWidth, height: 80)
+        // layout.footerReferenceSize = CGSize.init(width: ScreenInfo.ScreenWidth, height: 80)
+        return layout
+    }
+    private func setupCollectionView() -> UICollectionView{
+        let    collectionView = UICollectionView.init(frame: CGRect(x:0, y:0, width:ScreenInfo.ScreenWidth, height:140), collectionViewLayout: layout)
+        collectionView.backgroundColor = UIColor.white
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.showsHorizontalScrollIndicator = false
+        // 注册cell
+        collectionView.register(UINib.init(nibName: "MainViewHeadIeam", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.backgroundColor = UIColor(red: 250/255.0, green:  250/255.0, blue:  250/255.0, alpha: 1.0)
+        let bgV = UIView()
+        bgV.frame = CGRect(x: 0, y: 139, width: ScreenInfo.ScreenWidth, height: 1)
+        bgV.backgroundColor = UIColor(red: 240/255.0, green:  240/255.0, blue:  240/255.0, alpha: 1.0)
+        collectionView.addSubview(bgV)
+        return collectionView
+    }
+    
+       private func setupTableView() -> UITableView{
+        let tableView = UITableView (frame: CGRect(x: 0, y: 0, width: ScreenInfo.ScreenWidth, height: ScreenInfo.ScreenHeight - 49 - ScreenInfo.navigationHeight), style:.plain)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.showsVerticalScrollIndicator = false
+        tableView.estimatedRowHeight = 40
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableHeaderView = collectionView
+        return tableView
     }
 }

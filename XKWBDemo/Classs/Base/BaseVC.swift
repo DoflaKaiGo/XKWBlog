@@ -9,7 +9,7 @@
 import UIKit
 
 class BaseVC: UIViewController {
-    let isLogin = false
+    let isLogin = true
     let visitorV = VistorView.visitorView();
     
     override func loadView() {
