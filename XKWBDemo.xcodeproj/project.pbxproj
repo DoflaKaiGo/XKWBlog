@@ -38,6 +38,8 @@
 		C18ECB8721B179C00072FEE0 /* RightCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */; };
 		C18ECB8921B181F40072FEE0 /* CustomPresentController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */; };
 		C18ECB8B21B3F1E10072FEE0 /* PresentAnimationor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */; };
+		C18ECB8E21B4C1160072FEE0 /* FocusIteam.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8C21B4C1160072FEE0 /* FocusIteam.swift */; };
+		C18ECB8F21B4C1160072FEE0 /* FocusIteam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB8D21B4C1160072FEE0 /* FocusIteam.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -74,6 +76,8 @@
 		C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RightCustomCell.xib; sourceTree = "<group>"; };
 		C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomPresentController.swift; sourceTree = "<group>"; };
 		C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationor.swift; sourceTree = "<group>"; };
+		C18ECB8C21B4C1160072FEE0 /* FocusIteam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIteam.swift; sourceTree = "<group>"; };
+		C18ECB8D21B4C1160072FEE0 /* FocusIteam.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusIteam.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -221,9 +225,9 @@
 			isa = PBXGroup;
 			children = (
 				C18ECB8321B179790072FEE0 /* View */,
+				C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */,
 				C18ECB8821B181F40072FEE0 /* CustomPresentController.swift */,
 				C18ECB7F21B178790072FEE0 /* PresentVC.swift */,
-				C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */,
 				C18ECB8021B178790072FEE0 /* PresentVC.xib */,
 			);
 			path = PresentVC;
@@ -234,6 +238,8 @@
 			children = (
 				C18ECB8421B179C00072FEE0 /* RightCustomCell.swift */,
 				C18ECB8521B179C00072FEE0 /* RightCustomCell.xib */,
+				C18ECB8C21B4C1160072FEE0 /* FocusIteam.swift */,
+				C18ECB8D21B4C1160072FEE0 /* FocusIteam.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -296,6 +302,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18ECB8F21B4C1160072FEE0 /* FocusIteam.xib in Resources */,
 				C18ECB7421B0D8AD0072FEE0 /* VideoVC.storyboard in Resources */,
 				C18ECB8721B179C00072FEE0 /* RightCustomCell.xib in Resources */,
 				C10F94CA21AFB74100C59409 /* LaunchScreen.storyboard in Resources */,
@@ -333,6 +340,7 @@
 				C10F94C021AFB74000C59409 /* AppDelegate.swift in Sources */,
 				C10F94FE21B0BC5300C59409 /* VistorView.swift in Sources */,
 				C10F94DB21AFB7EA00C59409 /* DiscoverVC.swift in Sources */,
+				C18ECB8E21B4C1160072FEE0 /* FocusIteam.swift in Sources */,
 				C18ECB7D21B12E5A0072FEE0 /* CommonHelper.swift in Sources */,
 				C10F94E121AFB84A00C59409 /* MainVC.swift in Sources */,
 				C18ECB8B21B3F1E10072FEE0 /* PresentAnimationor.swift in Sources */,

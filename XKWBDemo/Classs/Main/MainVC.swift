@@ -11,7 +11,8 @@ class MainVC: BaseVC {
     // MArk: - 懒加载
     private  var publishBtnSelected : Bool = false // 发布按钮的点击状态
     private lazy var  presentAnimationor  : PresentAnimationor = PresentAnimationor()
-    lazy  var  presentVC = PresentVC()
+    lazy  var  publishPresentVC = PresentVC(showType: PresentVCType.table) //发布按钮弹窗
+    lazy  var  focusPresentVC = PresentVC(showType: PresentVCType.collection) //关注按钮弹窗
     private  lazy var  layout  = setupCollectionViewLayout()
    private  lazy  var   collectionView : UICollectionView? = setupCollectionView()
    private  lazy var tableView: UITableView? = setupTableView()
@@ -37,10 +38,20 @@ extension MainVC{
     }
     private func setNaviTitleView(){
         let  naviTitleV = NaviTitleView.CreatV()
-        naviTitleV.tapBtnCallback =   {( tag : NSInteger , state : Bool ) in
+        naviTitleV.tapBtnCallback =   {[weak self]( tag : NSInteger , state : Bool ) in
             if tag == 0 {
+                if(state){
+                self!.focusPresentVC.modalPresentationStyle = .custom
+                self!.focusPresentVC.transitioningDelegate = self!.presentAnimationor
+                self!.presentAnimationor.presentVCFrame = CGRect(x: 0, y: 0, width: ScreenInfo.ScreenWidth, height: ScreenInfo.ScreenHeight * 0.6);
+                //弹出选项列表
+               self!.present(self!.focusPresentVC, animated: true, completion: nil);
                 print("点击了 关注 按钮")
+                }else{
+                      self!.focusPresentVC.dismiss(animated: true, completion: nil)
+                }
             }else{
+                  self!.focusPresentVC.dismiss(animated: true, completion: nil)
                 print("点击了 热门 按钮")
             }
         }
@@ -96,11 +107,11 @@ extension MainVC{
     }
     @objc func clickRightOneBtn(){
         publishBtnSelected = !publishBtnSelected
-        presentVC.modalPresentationStyle = .custom
-        presentVC.transitioningDelegate = presentAnimationor
+        publishPresentVC.modalPresentationStyle = .custom
+        publishPresentVC.transitioningDelegate = presentAnimationor
         presentAnimationor.presentVCFrame = CGRect(x: ScreenInfo.ScreenWidth - 145, y: ScreenInfo.navigationHeight + 10, width: 140, height: 180);
         //弹出选项列表
-        present(presentVC, animated: true, completion: nil);
+        present(publishPresentVC, animated: true, completion: nil);
     }
     @objc func clickRightTwoBtn(){
         print("点击了右边第二个按钮")

@@ -54,7 +54,8 @@ class NaviTitleView: UIView {
         }
     }
     
-class   func CreatV() -> NaviTitleView {
+   
+    class   func CreatV() -> NaviTitleView {
         let view = Bundle.main.loadNibNamed("NaviTitleView", owner: self, options: nil)?.first as? NaviTitleView
         if let view = view {
             view.sizeToFit()
@@ -69,7 +70,14 @@ class   func CreatV() -> NaviTitleView {
         }
         return UIView() as! NaviTitleView;
     }
+    override func draw(_ rect: CGRect) {
+        NotificationCenter.default.addObserver(self, selector: #selector(notitapPresentationControllerBlank), name: NSNotification.Name( "tapPresentationControllerBlank"), object: nil)
+
+    }
    
+    @objc private func notitapPresentationControllerBlank(){
+        isShowCollectionV = false
+    }
     //关注按钮动画
     private func focusBtnImageAnimation(){
         let animation = CABasicAnimation(keyPath: "transform.rotation.z")
@@ -94,7 +102,7 @@ class   func CreatV() -> NaviTitleView {
      
         sender.backgroundColor = UIColor.clear;
         if self.tapBtnCallback != nil {
-            self.tapBtnCallback!(sender.tag,sender.isSelected);
+            self.tapBtnCallback!(sender.tag,isShowCollectionV);
         }
     }
     
@@ -104,7 +112,11 @@ class   func CreatV() -> NaviTitleView {
         self.focusBtnState = false
         sender.backgroundColor = UIColor.clear;
             if self.tapBtnCallback != nil {
-               self.tapBtnCallback!(sender.tag,sender.isSelected);
+               self.tapBtnCallback!(sender.tag,isShowCollectionV);
         }
+    }
+   
+    deinit {
+        NotificationCenter.default.removeObserver(self);
     }
 }
