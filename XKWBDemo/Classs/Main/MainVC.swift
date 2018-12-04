@@ -91,12 +91,10 @@ extension MainVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var   cell = tableView.dequeueReusableCell(withIdentifier: "customCell")
-        if cell == nil{
-             cell =  UITableViewCell(style: .default, reuseIdentifier: "customCell")
-        }
-            cell!.textLabel?.text = "\(indexPath.row)"
-        return cell!
+        let   cell = tableView.dequeueReusableCell(withIdentifier: "WBVideoCell", for: indexPath)
+      // cell.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
+        cell.selectionStyle = .none
+        return cell
     }
 }
 
@@ -114,6 +112,9 @@ extension MainVC{
         present(publishPresentVC, animated: true, completion: nil);
     }
     @objc func clickRightTwoBtn(){
+        NetworkTools.shareInstance.request(methodType: .GET, urlString: "https://httpbin.org/", parameters: ["age":"18" as AnyObject,"name":"KaiGe" as AnyObject]) { (data:AnyObject?, error:NSError?) in
+            print("data:\(data!)");
+        }
         print("点击了右边第二个按钮")
     }
 }
@@ -156,6 +157,8 @@ extension MainVC {
         tableView.estimatedRowHeight = 40
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableHeaderView = collectionView
+        tableView.separatorStyle = .none
+        tableView.register(UINib.init(nibName: "WBVideoCell", bundle: nil), forCellReuseIdentifier: "WBVideoCell")
         return tableView
     }
 }

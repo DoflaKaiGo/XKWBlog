@@ -40,9 +40,19 @@
 		C18ECB8B21B3F1E10072FEE0 /* PresentAnimationor.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */; };
 		C18ECB8E21B4C1160072FEE0 /* FocusIteam.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB8C21B4C1160072FEE0 /* FocusIteam.swift */; };
 		C18ECB8F21B4C1160072FEE0 /* FocusIteam.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB8D21B4C1160072FEE0 /* FocusIteam.xib */; };
+		C18ECB9421B539200072FEE0 /* NetworkTools.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB9321B5391F0072FEE0 /* NetworkTools.swift */; };
+		C18ECB9721B606F00072FEE0 /* XKWBInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB9621B606F00072FEE0 /* XKWBInfo.swift */; };
+		C18ECB9A21B618270072FEE0 /* WBVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB9921B618270072FEE0 /* WBVideoCell.swift */; };
+		C18ECB9C21B618410072FEE0 /* WBVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECB9B21B618410072FEE0 /* WBVideoCell.xib */; };
+		C18ECBA121B654480072FEE0 /* RiginalWBOnlyTextCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C18ECB9F21B654480072FEE0 /* RiginalWBOnlyTextCell.swift */; };
+		C18ECBA221B654480072FEE0 /* RiginalWBOnlyTextCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C18ECBA021B654480072FEE0 /* RiginalWBOnlyTextCell.xib */; };
+		C372056B073F2675563EC960 /* Pods_XKWBDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D50CD97575D286CB8366701 /* Pods_XKWBDemo.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3D50CD97575D286CB8366701 /* Pods_XKWBDemo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_XKWBDemo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		7BEABC61BAE7022B643CB0B7 /* Pods-XKWBDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKWBDemo.debug.xcconfig"; path = "Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo.debug.xcconfig"; sourceTree = "<group>"; };
+		BF2DC3260E7D982B90DE4342 /* Pods-XKWBDemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKWBDemo.release.xcconfig"; path = "Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo.release.xcconfig"; sourceTree = "<group>"; };
 		C10F94BC21AFB74000C59409 /* XKWBDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = XKWBDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C10F94BF21AFB74000C59409 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C10F94C421AFB74000C59409 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -78,6 +88,12 @@
 		C18ECB8A21B3F1E10072FEE0 /* PresentAnimationor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PresentAnimationor.swift; sourceTree = "<group>"; };
 		C18ECB8C21B4C1160072FEE0 /* FocusIteam.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FocusIteam.swift; sourceTree = "<group>"; };
 		C18ECB8D21B4C1160072FEE0 /* FocusIteam.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FocusIteam.xib; sourceTree = "<group>"; };
+		C18ECB9321B5391F0072FEE0 /* NetworkTools.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkTools.swift; sourceTree = "<group>"; };
+		C18ECB9621B606F00072FEE0 /* XKWBInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = XKWBInfo.swift; sourceTree = "<group>"; };
+		C18ECB9921B618270072FEE0 /* WBVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBVideoCell.swift; sourceTree = "<group>"; };
+		C18ECB9B21B618410072FEE0 /* WBVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WBVideoCell.xib; sourceTree = "<group>"; };
+		C18ECB9F21B654480072FEE0 /* RiginalWBOnlyTextCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiginalWBOnlyTextCell.swift; sourceTree = "<group>"; };
+		C18ECBA021B654480072FEE0 /* RiginalWBOnlyTextCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RiginalWBOnlyTextCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -85,17 +101,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C372056B073F2675563EC960 /* Pods_XKWBDemo.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3ECADC174C45CC1E63DFAA22 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				7BEABC61BAE7022B643CB0B7 /* Pods-XKWBDemo.debug.xcconfig */,
+				BF2DC3260E7D982B90DE4342 /* Pods-XKWBDemo.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4D91D1BAC6FAF0338F31EB16 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				3D50CD97575D286CB8366701 /* Pods_XKWBDemo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C10F94B321AFB74000C59409 = {
 			isa = PBXGroup;
 			children = (
 				C10F94BE21AFB74000C59409 /* XKWBDemo */,
 				C10F94BD21AFB74000C59409 /* Products */,
+				3ECADC174C45CC1E63DFAA22 /* Pods */,
+				4D91D1BAC6FAF0338F31EB16 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -111,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				C10F94D721AFB78B00C59409 /* Classs */,
+				C18ECB9521B606C50072FEE0 /* Tool */,
 				C10F94D121AFB74700C59409 /* Other */,
 				C10F94CB21AFB74100C59409 /* Info.plist */,
 				C10F94F121AFC25A00C59409 /* Images.xcassets */,
@@ -133,6 +170,7 @@
 		C10F94D221AFB75700C59409 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				C18ECB9821B617E70072FEE0 /* WBCell */,
 				C18ECB7E21B1784B0072FEE0 /* PresentVC */,
 				C10F94E421AFBB2600C59409 /* MainVC.storyboard */,
 				C10F94E021AFB84A00C59409 /* MainVC.swift */,
@@ -182,6 +220,7 @@
 		C10F94D721AFB78B00C59409 /* Classs */ = {
 			isa = PBXGroup;
 			children = (
+				C18ECB9021B52EF70072FEE0 /* Net */,
 				C10F94D321AFB75E00C59409 /* Base */,
 				C18ECB7521B0D8C00072FEE0 /* Video */,
 				C10F94D221AFB75700C59409 /* Main */,
@@ -244,6 +283,49 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		C18ECB9021B52EF70072FEE0 /* Net */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB9321B5391F0072FEE0 /* NetworkTools.swift */,
+			);
+			path = Net;
+			sourceTree = "<group>";
+		};
+		C18ECB9521B606C50072FEE0 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB9621B606F00072FEE0 /* XKWBInfo.swift */,
+			);
+			path = Tool;
+			sourceTree = "<group>";
+		};
+		C18ECB9821B617E70072FEE0 /* WBCell */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB9E21B653C00072FEE0 /* 转发微博 */,
+				C18ECB9D21B653980072FEE0 /* 原创微博 */,
+			);
+			path = WBCell;
+			sourceTree = "<group>";
+		};
+		C18ECB9D21B653980072FEE0 /* 原创微博 */ = {
+			isa = PBXGroup;
+			children = (
+				C18ECB9921B618270072FEE0 /* WBVideoCell.swift */,
+				C18ECB9B21B618410072FEE0 /* WBVideoCell.xib */,
+				C18ECB9F21B654480072FEE0 /* RiginalWBOnlyTextCell.swift */,
+				C18ECBA021B654480072FEE0 /* RiginalWBOnlyTextCell.xib */,
+			);
+			path = "原创微博";
+			sourceTree = "<group>";
+		};
+		C18ECB9E21B653C00072FEE0 /* 转发微博 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "转发微博";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -251,9 +333,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C10F94CE21AFB74100C59409 /* Build configuration list for PBXNativeTarget "XKWBDemo" */;
 			buildPhases = (
+				F8086B588EB43F379E83EC51 /* [CP] Check Pods Manifest.lock */,
 				C10F94B821AFB74000C59409 /* Sources */,
 				C10F94B921AFB74000C59409 /* Frameworks */,
 				C10F94BA21AFB74000C59409 /* Resources */,
+				B0D110B5DBEFCDED7E8D985F /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -302,10 +386,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C18ECB9C21B618410072FEE0 /* WBVideoCell.xib in Resources */,
 				C18ECB8F21B4C1160072FEE0 /* FocusIteam.xib in Resources */,
 				C18ECB7421B0D8AD0072FEE0 /* VideoVC.storyboard in Resources */,
 				C18ECB8721B179C00072FEE0 /* RightCustomCell.xib in Resources */,
 				C10F94CA21AFB74100C59409 /* LaunchScreen.storyboard in Resources */,
+				C18ECBA221B654480072FEE0 /* RiginalWBOnlyTextCell.xib in Resources */,
 				C10F94F221AFC25A00C59409 /* Images.xcassets in Resources */,
 				C18ECB8221B178790072FEE0 /* PresentVC.xib in Resources */,
 				C10F94ED21AFBB7400C59409 /* ProfileVC.storyboard in Resources */,
@@ -322,16 +408,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		B0D110B5DBEFCDED7E8D985F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F8086B588EB43F379E83EC51 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-XKWBDemo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C10F94B821AFB74000C59409 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 				C18ECB8621B179C00072FEE0 /* RightCustomCell.swift in Sources */,
+				C18ECB9721B606F00072FEE0 /* XKWBInfo.swift in Sources */,
 				C10F94D921AFB7D500C59409 /* ProfileVC.swift in Sources */,
 				C10F94F721AFE03D00C59409 /* NaviTitleView.swift in Sources */,
 				C10F94DF21AFB82700C59409 /* BaseTabbarVC.swift in Sources */,
 				C10F94E321AFBABB00C59409 /* BaseNaviVC.swift in Sources */,
+				C18ECB9421B539200072FEE0 /* NetworkTools.swift in Sources */,
 				C18ECB8121B178790072FEE0 /* PresentVC.swift in Sources */,
 				C10F94FB21B0BBF200C59409 /* BaseVC.swift in Sources */,
 				C18ECB7721B0D8E00072FEE0 /* VideoVC.swift in Sources */,
@@ -339,7 +474,9 @@
 				C10F94DD21AFB7F700C59409 /* MessageVC.swift in Sources */,
 				C10F94C021AFB74000C59409 /* AppDelegate.swift in Sources */,
 				C10F94FE21B0BC5300C59409 /* VistorView.swift in Sources */,
+				C18ECB9A21B618270072FEE0 /* WBVideoCell.swift in Sources */,
 				C10F94DB21AFB7EA00C59409 /* DiscoverVC.swift in Sources */,
+				C18ECBA121B654480072FEE0 /* RiginalWBOnlyTextCell.swift in Sources */,
 				C18ECB8E21B4C1160072FEE0 /* FocusIteam.swift in Sources */,
 				C18ECB7D21B12E5A0072FEE0 /* CommonHelper.swift in Sources */,
 				C10F94E121AFB84A00C59409 /* MainVC.swift in Sources */,
@@ -512,6 +649,7 @@
 		};
 		C10F94CF21AFB74100C59409 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 7BEABC61BAE7022B643CB0B7 /* Pods-XKWBDemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
@@ -532,6 +670,7 @@
 		};
 		C10F94D021AFB74100C59409 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = BF2DC3260E7D982B90DE4342 /* Pods-XKWBDemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
