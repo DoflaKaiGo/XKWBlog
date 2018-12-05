@@ -14,7 +14,7 @@ class DiscoverVC: BaseVC {
         super.viewDidLoad()
 
         visitorV.setupVistorViewInfo(text: "有美人兮,见之不忘,一日不见兮,思之如狂", imgName: "visitordiscover_image_message")
-        if !isLogin {
+        if !isLogined {
             return
         }
     }

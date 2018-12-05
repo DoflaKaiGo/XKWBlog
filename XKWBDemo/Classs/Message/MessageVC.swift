@@ -13,7 +13,7 @@ class MessageVC: BaseVC {
     override func viewDidLoad() {
         super.viewDidLoad()
         visitorV.setupVistorViewInfo(text: "二十四桥明月夜,玉人何处教吹箫", imgName: "visitordiscover_image_message")
-        if !isLogin {
+        if !isLogined {
             return
         }
     }

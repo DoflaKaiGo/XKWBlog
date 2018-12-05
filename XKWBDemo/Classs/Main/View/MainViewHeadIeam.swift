@@ -19,12 +19,12 @@ class MainViewHeadIeam: UICollectionViewCell {
     }
     
     private func setupSubViews(){
-        self.headBgV.layer.cornerRadius = 40
+        self.headBgV.layer.cornerRadius = 30
         self.headBgV.layer.borderColor = UIColor.orange.cgColor
         self.headBgV.layer.borderWidth = 2.0
         self.headBgV.clipsToBounds = true
         
-        self.userHeadImg.layer.cornerRadius = 35
+        self.userHeadImg.layer.cornerRadius = 25
         self.userHeadImg.layer.masksToBounds = true
         self.userType.layer.cornerRadius = 10
         self.userType.layer.borderWidth = 2;

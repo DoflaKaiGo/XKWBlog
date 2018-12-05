@@ -31,25 +31,29 @@ extension NetworkTools {
     ///   - urlString: URL地址
     ///   - parameters: 请求参数
     ///   - finished: 请求结果返回的回调
-    func request(methodType : RequestType, urlString : String, parameters : [String : AnyObject], finished : @escaping (_ result : AnyObject?, _ error : NSError?) -> ()) -> () {
+    func requestWBData(methodType : RequestType, parameters : [String : AnyObject], finished : @escaping (_ result : AnyObject?, _ error : NSError?) -> ()) -> () {
         if methodType == .GET{
-            Alamofire.request(urlString + "get", parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
-                   print(response)
+            Alamofire.request(requestWeiboUrl, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
                 if let json = response.result.value {
+                    print(json)
                     finished(json as AnyObject,nil)
-            //        print("JSON: \(json)")
                 }
             }
-        }else{
-            Alamofire.request("https://httpbin.org/" + "post", parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
-                   print(response)
-                if let json = response.result.value {
-                    finished(json as AnyObject,nil)
-                //    print("JSON: \(json)")
-                }
-            }
-    }
+        }
 }
+    //请求用户数据
+    func requestUserData(methodType : RequestType,  parameters : [String : AnyObject], finished : @escaping (_ result : AnyObject?, _ error : NSError?) -> ()) -> () {
+           if methodType == .GET{
+            Alamofire.request(requestUserInfoUrl, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
+                if let json = response.result.value {
+                    let userDic = json as? Dictionary<String, AnyObject>
+                    let userInfoModel = UserInfoModel(userDic: userDic!)
+                    print(json)
+                    finished(userInfoModel as AnyObject,nil)
+                }
+            }
+        }
+    }
 //    func request(methodType : RequestType, urlString : String, parameters : [String : AnyObject], finished : (result : AnyObject?, _ error : NSError?) -> ()) {
 //
 //        // 1.定义成功的回调闭包

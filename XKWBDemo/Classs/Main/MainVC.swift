@@ -16,13 +16,27 @@ class MainVC: BaseVC {
     private  lazy var  layout  = setupCollectionViewLayout()
    private  lazy  var   collectionView : UICollectionView? = setupCollectionView()
    private  lazy var tableView: UITableView? = setupTableView()
-    
+    private let  netManager = NetworkTools.shareInstance
     override func viewDidLoad() {
         super.viewDidLoad()
         visitorV.setAnimation()
-        if !isLogin {return}
+        if !isLogined {return}
            setNavibarBtn();
          view.addSubview(tableView!);
+        requestData()
+    }
+    
+    func requestData() {
+      let   token = UserDefaults.standard.string(forKey: accessToken)
+        netManager.requestWBData(methodType: .GET, parameters: ["access_token":token as AnyObject]) { (data, error) in
+            if error != nil{print(data as Any)}
+        }
+    }
+    
+     func reloadView() {
+        if !isLogined {return}
+        setNavibarBtn();
+        view.addSubview(tableView!);
     }
 }
 
@@ -71,7 +85,7 @@ extension MainVC :UICollectionViewDelegate,UICollectionViewDataSource{
         return 10
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-          let cell:MainViewHeadIeam = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! MainViewHeadIeam
+          let cell:MainViewHeadIeam = collectionView.dequeueReusableCell(withReuseIdentifier: mainViewHeadCollectionCell, for: indexPath) as! MainViewHeadIeam
         return cell;
     }
     //点击 iteam
@@ -91,7 +105,17 @@ extension MainVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let   cell = tableView.dequeueReusableCell(withIdentifier: "WBVideoCell", for: indexPath)
+        var   cell :UITableViewCell  ;
+        if indexPath.row % 4 == 1 {
+          cell =  tableView.dequeueReusableCell(withIdentifier: originalVideCell, for: indexPath)
+        }else if indexPath.row % 4 == 2{
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalTextCell, for: indexPath)
+        }else if indexPath.row % 4 == 3{
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalThreeImgCell, for: indexPath)
+        }else{
+              cell =    tableView.dequeueReusableCell(withIdentifier: originalOneImgCell, for: indexPath)
+        }
+        
       // cell.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
         cell.selectionStyle = .none
         return cell
@@ -112,9 +136,6 @@ extension MainVC{
         present(publishPresentVC, animated: true, completion: nil);
     }
     @objc func clickRightTwoBtn(){
-        NetworkTools.shareInstance.request(methodType: .GET, urlString: "https://httpbin.org/", parameters: ["age":"18" as AnyObject,"name":"KaiGe" as AnyObject]) { (data:AnyObject?, error:NSError?) in
-            print("data:\(data!)");
-        }
         print("点击了右边第二个按钮")
     }
 }
@@ -123,7 +144,7 @@ extension MainVC{
 extension MainVC {
     private func setupCollectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: 100, height: 115)
+        layout.itemSize = CGSize(width: 80, height: 100)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.scrollDirection = .horizontal
@@ -140,7 +161,7 @@ extension MainVC {
         collectionView.dataSource = self
         collectionView.showsHorizontalScrollIndicator = false
         // 注册cell
-        collectionView.register(UINib.init(nibName: "MainViewHeadIeam", bundle: nil), forCellWithReuseIdentifier: "CollectionViewCell")
+        collectionView.register(UINib.init(nibName: "MainViewHeadIeam", bundle: nil), forCellWithReuseIdentifier: mainViewHeadCollectionCell)
         collectionView.backgroundColor = UIColor(red: 250/255.0, green:  250/255.0, blue:  250/255.0, alpha: 1.0)
         let bgV = UIView()
         bgV.frame = CGRect(x: 0, y: 139, width: ScreenInfo.ScreenWidth, height: 1)
@@ -158,7 +179,10 @@ extension MainVC {
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableHeaderView = collectionView
         tableView.separatorStyle = .none
-        tableView.register(UINib.init(nibName: "WBVideoCell", bundle: nil), forCellReuseIdentifier: "WBVideoCell")
+        tableView.register(UINib.init(nibName: originalVideCell, bundle: nil), forCellReuseIdentifier: originalVideCell)
+        tableView.register(WBOriginalOnlyTextCell.self, forCellReuseIdentifier: originalTextCell)
+        tableView.register(WBOriginalOneImageCell.self, forCellReuseIdentifier: originalOneImgCell)
+        tableView.register(WBOriginalThreeImgCell.self, forCellReuseIdentifier: originalThreeImgCell)
         return tableView
     }
 }

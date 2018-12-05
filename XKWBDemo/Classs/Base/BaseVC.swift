@@ -9,11 +9,15 @@
 import UIKit
 
 class BaseVC: UIViewController {
-    let isLogin = true
+    var  isLogined : Bool  {
+        get{
+            return UserDefaults.standard.bool(forKey: isLogin)
+        }
+    }
     let visitorV = VistorView.visitorView();
     
     override func loadView() {
-        isLogin ? super.loadView() : setupVisitorView()
+        isLogined ? super.loadView() : setupVisitorView()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,14 +27,16 @@ class BaseVC: UIViewController {
         view = visitorV;
         visitorV.registerBtn.addTarget(nil, action: #selector(clickRejesterBtn), for: .touchUpInside)
         visitorV.loginBtn.addTarget(nil, action: #selector(clickLoginBtn), for: .touchUpInside)
-
     }
-
     @objc func clickRejesterBtn(){
         print("注册")
     }
     @objc func clickLoginBtn(){
+        let request = WBAuthorizeRequest.request() as! WBAuthorizeRequest
+        request.redirectURI = kRedirectURI
+        request.scope = "all"
+        request.userInfo = ["": ""]
+        WeiboSDK.send(request)
           print("登录")
     }
-
 }
