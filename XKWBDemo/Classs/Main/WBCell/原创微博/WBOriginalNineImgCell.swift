@@ -1,14 +1,14 @@
 //
-//  WBOriginalThreeImgCell.swift
+//  WBOriginalNineImgCell.swift
 //  XKWBDemo
 //
-//  Created by Lxk on 2018/12/5.
+//  Created by Lxk on 2018/12/6.
 //  Copyright © 2018年 Lxk. All rights reserved.
 //
 
 import UIKit
 
-class WBOriginalThreeImgCell: UITableViewCell {
+class WBOriginalNineImgCell: UITableViewCell {
     lazy var headImgView =  UIImageView();
     lazy var vipImgView = UIImageView()
     lazy var userNameLable = UILabel()
@@ -25,6 +25,12 @@ class WBOriginalThreeImgCell: UITableViewCell {
     lazy var imgOne  = UIImageView()
     lazy var imgTwo  = UIImageView()
     lazy var imgThree  = UIImageView()
+    lazy var imgFour  = UIImageView()
+    lazy var imgFive  = UIImageView()
+    lazy var imgSix  = UIImageView()
+    lazy var imgSeven  = UIImageView()
+    lazy var imgEight  = UIImageView()
+    lazy var imgNine  = UIImageView()
     lazy var footerView = UIView()
     let imgWidth = (ScreenInfo.ScreenWidth - 30)/3
     override func awakeFromNib() {
@@ -39,19 +45,29 @@ class WBOriginalThreeImgCell: UITableViewCell {
         setUpSubviewsLayout()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func setWBDataWithModel(model:WBDataInfoModel){
         var imageSdataArray = [Data]()
         DispatchQueue.global().async {
-            let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+             let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
             for imgStr in model.imagesUrl!{
                 let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
                 imageSdataArray.append(imgData)
             }
             DispatchQueue.main.async {
-                self.headImgView.image = UIImage(data:headimgData)
+                  self.headImgView.image = UIImage(data:headimgData)
                 self.imgOne.image = UIImage(data:imageSdataArray[0] )
                 self.imgTwo.image = UIImage(data:imageSdataArray[1] )
                 self.imgThree.image = UIImage(data:imageSdataArray[2] )
+                self.imgFour.image = UIImage(data:imageSdataArray[3] )
+                self.imgFive.image = UIImage(data:imageSdataArray[4] )
+                self.imgSix.image = UIImage(data:imageSdataArray[5] )
+                self.imgSeven.image = UIImage(data:imageSdataArray[6] )
+                self.imgEight.image = UIImage(data:imageSdataArray[7] )
+                self.imgNine.image = UIImage(data:imageSdataArray[8] )
             }
         }
         shareBtn.setTitle(String(model.reposts_count), for: .normal)
@@ -59,10 +75,6 @@ class WBOriginalThreeImgCell: UITableViewCell {
         supportBtn.setTitle(String(model.attitudes_count), for: .normal)
         userNameLable.text = model.user.userName
         textLable.text = model.text
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
     }
     
     func setUpSubViews() {
@@ -93,6 +105,12 @@ class WBOriginalThreeImgCell: UITableViewCell {
         imgOne.contentMode = .scaleToFill
         imgTwo.contentMode = .scaleToFill
         imgThree.contentMode = .scaleToFill
+        imgFour.contentMode = .scaleToFill
+        imgFive.contentMode = .scaleToFill
+        imgSix.contentMode = .scaleToFill
+        imgSeven.contentMode = .scaleToFill
+        imgEight.contentMode = .scaleToFill
+        imgNine.contentMode = .scaleToFill
         
         //设置假数据
         headImgView.image =  #imageLiteral(resourceName: "back_me")
@@ -104,6 +122,12 @@ class WBOriginalThreeImgCell: UITableViewCell {
         imgOne.image = UIImage(named: "B_Image_2")
         imgTwo.image = UIImage(named: "B_Image_2")
         imgThree.image = UIImage(named: "B_Image_2")
+        imgFour.image = UIImage(named: "B_Image_3")
+        imgFive.image = UIImage(named: "B_Image_3")
+        imgSix.image = UIImage(named: "B_Image_3")
+          imgSeven.image = UIImage(named: "B_Image_4")
+          imgEight.image = UIImage(named: "B_Image_4")
+          imgNine.image = UIImage(named: "B_Image_4")
         advImageBtn.clipsToBounds = true
         rightOptionalBtn.setTitle("关注", for: .normal)
         rightOptionalBtn.layer.borderColor = UIColor.orange.cgColor
@@ -137,6 +161,12 @@ class WBOriginalThreeImgCell: UITableViewCell {
         contentView.addSubview(imgOne)
         contentView.addSubview(imgTwo)
         contentView.addSubview(imgThree)
+         contentView.addSubview(imgFour)
+         contentView.addSubview(imgFive)
+         contentView.addSubview(imgSix)
+         contentView.addSubview(imgSeven)
+         contentView.addSubview(imgEight)
+         contentView.addSubview(imgNine)
         contentView.addSubview(grayLineV)
         contentView.addSubview(shareBtn)
         contentView.addSubview(commentBtn)
@@ -213,9 +243,45 @@ class WBOriginalThreeImgCell: UITableViewCell {
             make.left.equalTo(imgTwo.snp.right).offset(5)
             make.top.equalTo(textLable.snp.bottom).offset(10)
         }
+        imgFour.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.left.equalToSuperview().offset(10)
+            make.top.equalTo(imgOne.snp.bottom).offset(5)
+        }
+        imgFive.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.top.equalTo(imgTwo.snp.bottom).offset(5)
+            make.left.equalTo(imgFour.snp.right).offset(5)
+        }
+        imgSix.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.top.equalTo(imgThree.snp.bottom).offset(5)
+            make.left.equalTo(imgFive.snp.right).offset(5)
+        }
+        imgSeven.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.top.equalTo(imgFour.snp.bottom).offset(5)
+            make.left.equalToSuperview().offset(10)
+        }
+        imgEight.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.top.equalTo(imgFour.snp.bottom).offset(5)
+            make.left.equalTo(imgSeven.snp.right).offset(5)
+        }
+        imgNine.snp.makeConstraints { (make) in
+            make.width.equalTo(imgWidth)
+            make.height.equalTo(imgWidth)
+            make.top.equalTo(imgFour.snp.bottom).offset(5)
+            make.left.equalTo(imgEight.snp.right).offset(5)
+        }
         grayLineV.snp.makeConstraints { (make) in
             make.left.right.equalToSuperview().offset(0)
-            make.top.equalTo(imgOne.snp.bottom).offset(10)
+            make.top.equalTo(imgNine.snp.bottom).offset(10)
             make.height.equalTo(1)
         }
         commentBtn.snp.makeConstraints { (make) in
@@ -245,5 +311,4 @@ class WBOriginalThreeImgCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }

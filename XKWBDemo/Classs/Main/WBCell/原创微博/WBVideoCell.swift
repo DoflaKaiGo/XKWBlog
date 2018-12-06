@@ -33,7 +33,16 @@ class WBVideoCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
-    
+    override func setWBDataWithModel(model:WBDataInfoModel){
+        DispatchQueue.global().async {
+            let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+            DispatchQueue.main.async {
+                self.headimgV.image = UIImage(data:headimgData)
+            }
+        }
+        userNameLab.text = model.user.userName
+        textLable.text = model.text
+    }
     override func draw(_ rect: CGRect) {
         headimgV.layer.cornerRadius = 25
         headimgV.layer.masksToBounds = true

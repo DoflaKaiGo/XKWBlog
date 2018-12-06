@@ -58,6 +58,8 @@
 		C18ECBBA21B798BA0072FEE0 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = C18ECBB921B798BA0072FEE0 /* libsqlite3.tbd */; };
 		C1BA983821B820AA00938296 /* UserInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983721B820AA00938296 /* UserInfoModel.swift */; };
 		C1BA983A21B82BC400938296 /* WBDataInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983921B82BC400938296 /* WBDataInfoModel.swift */; };
+		C1BA983C21B8F6FF00938296 /* ExternTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983B21B8F6FF00938296 /* ExternTableViewCell.swift */; };
+		C1BA983E21B8F9A700938296 /* WBOriginalNineImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983D21B8F9A700938296 /* WBOriginalNineImgCell.swift */; };
 		C372056B073F2675563EC960 /* Pods_XKWBDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D50CD97575D286CB8366701 /* Pods_XKWBDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -120,6 +122,8 @@
 		C18ECBBB21B7A1320072FEE0 /* WBKais-Brigding-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WBKais-Brigding-Header.h"; sourceTree = "<group>"; };
 		C1BA983721B820AA00938296 /* UserInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfoModel.swift; sourceTree = "<group>"; };
 		C1BA983921B82BC400938296 /* WBDataInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDataInfoModel.swift; sourceTree = "<group>"; };
+		C1BA983B21B8F6FF00938296 /* ExternTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternTableViewCell.swift; sourceTree = "<group>"; };
+		C1BA983D21B8F9A700938296 /* WBOriginalNineImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOriginalNineImgCell.swift; sourceTree = "<group>"; };
 		E1F5B6DB3046496654F2508D /* Pods-XKWBDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKWBDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -364,6 +368,8 @@
 				C18ECBA521B7545E0072FEE0 /* WBOriginalOneImageCell.swift */,
 				C18ECBA721B75F2B0072FEE0 /* WBOriginalThreeImgCell.swift */,
 				C18ECBA921B76C180072FEE0 /* WBOriginalSixImgCell.swift */,
+				C1BA983D21B8F9A700938296 /* WBOriginalNineImgCell.swift */,
+				C1BA983B21B8F6FF00938296 /* ExternTableViewCell.swift */,
 			);
 			path = "原创微博";
 			sourceTree = "<group>";
@@ -551,8 +557,10 @@
 				C10F94E321AFBABB00C59409 /* BaseNaviVC.swift in Sources */,
 				C18ECB9421B539200072FEE0 /* NetworkTools.swift in Sources */,
 				C18ECB8121B178790072FEE0 /* PresentVC.swift in Sources */,
+				C1BA983C21B8F6FF00938296 /* ExternTableViewCell.swift in Sources */,
 				C10F94FB21B0BBF200C59409 /* BaseVC.swift in Sources */,
 				C18ECB7721B0D8E00072FEE0 /* VideoVC.swift in Sources */,
+				C1BA983E21B8F9A700938296 /* WBOriginalNineImgCell.swift in Sources */,
 				C18ECBA821B75F2B0072FEE0 /* WBOriginalThreeImgCell.swift in Sources */,
 				C18ECB8921B181F40072FEE0 /* CustomPresentController.swift in Sources */,
 				C10F94DD21AFB7F700C59409 /* MessageVC.swift in Sources */,

@@ -28,7 +28,7 @@ import UIKit
       let originalTextCell = "WBOriginalOnlyTextCell.swift"
       let originalOneImgCell = "WBOriginalOneImageCell"
        let originalThreeImgCell = "WBOriginalThreeImgCell"
-       let originalSixImgCell = "aa"
-       let originalNineImgCell = "a"
+       let originalSixImgCell = "WBOriginalSixImgCell"
+       let originalNineImgCell = "WBOriginalNineImgCell"
 
  

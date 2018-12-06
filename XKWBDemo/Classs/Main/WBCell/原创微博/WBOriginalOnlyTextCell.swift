@@ -35,21 +35,28 @@ class WBOriginalOnlyTextCell: UITableViewCell {
         addSubViewsToView()
         setUpSubViews()
         setUpSubviewsLayout()
-    }
-    
-    override func layoutSubviews() {
         setUpSubViewsData()
     }
     
+   override func setWBDataWithModel(model:WBDataInfoModel){
+    DispatchQueue.global().async {
+        let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+        DispatchQueue.main.async {
+            self.headImgView.image = UIImage(data:headimgData)
+        }
+    }
+        shareBtn.setTitle(String(model.reposts_count), for: .normal)
+        commentBtn.setTitle(String(model.comments_count), for: .normal)
+        supportBtn.setTitle(String(model.attitudes_count), for: .normal)
+        userNameLable.text = model.user.userName
+        textLable.text = model.text
+    }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
     }
-    
 }
 extension WBOriginalOnlyTextCell{
  private   func setUpSubViews() {

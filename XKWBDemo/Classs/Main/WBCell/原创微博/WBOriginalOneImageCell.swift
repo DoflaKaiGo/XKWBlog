@@ -37,6 +37,25 @@ class WBOriginalOneImageCell: UITableViewCell {
         setUpSubviewsLayout()
         setSubViewsData()
     }
+    override func setWBDataWithModel(model:WBDataInfoModel){
+        var imageSdataArray = [Data]()
+        DispatchQueue.global().async {
+            let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+            for imgStr in model.imagesUrl!{
+                let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
+                imageSdataArray.append(imgData)
+            }
+            DispatchQueue.main.async {
+                self.headImgView.image = UIImage(data:headimgData)
+                self.pictureImg.image = UIImage(data:imageSdataArray[0] )
+            }
+        }
+        shareBtn.setTitle(String(model.reposts_count), for: .normal)
+        commentBtn.setTitle(String(model.comments_count), for: .normal)
+        supportBtn.setTitle(String(model.attitudes_count), for: .normal)
+        userNameLable.text = model.user.userName
+        textLable.text = model.text
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -68,7 +87,7 @@ class WBOriginalOneImageCell: UITableViewCell {
         vipImgView.contentMode = .scaleAspectFit
         vipLevelImgV.contentMode = .scaleAspectFit
         userTypeImgV.contentMode = .scaleAspectFit
-        pictureImg.contentMode = .scaleAspectFit
+        pictureImg.contentMode = .scaleToFill
     }
     
     private func  setSubViewsData(){
@@ -171,7 +190,7 @@ class WBOriginalOneImageCell: UITableViewCell {
         }
         pictureImg.snp.makeConstraints { (make) in
             make.width.lessThanOrEqualTo(200)
-            make.height.lessThanOrEqualTo(250)
+            make.height.lessThanOrEqualTo(300)
             make.left.equalToSuperview().offset(40)
             make.top.equalTo(textLable.snp.bottom).offset(10)
         }

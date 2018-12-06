@@ -32,11 +32,17 @@ extension NetworkTools {
     ///   - parameters: 请求参数
     ///   - finished: 请求结果返回的回调
     func requestWBData(methodType : RequestType, parameters : [String : AnyObject], finished : @escaping (_ result : AnyObject?, _ error : NSError?) -> ()) -> () {
+        var  wbDataModelArray = [WBDataInfoModel]()
         if methodType == .GET{
             Alamofire.request(requestWeiboUrl, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
-                if let json = response.result.value {
-                    print(json)
-                    finished(json as AnyObject,nil)
+                if let jsondata = response.result.value {
+                   let WBDataDic =   jsondata as! Dictionary<String,AnyObject>
+                    let WBDataArray  = WBDataDic["statuses"] as! [[String:AnyObject]];
+                    for  dic: [String:AnyObject] in WBDataArray {
+                        let wbDataModel = WBDataInfoModel(wbDataDic: dic)
+                        wbDataModelArray.append(wbDataModel)
+                    }
+                    finished(wbDataModelArray as AnyObject,nil)
                 }
             }
         }

@@ -9,6 +9,7 @@
 import UIKit
 class MainVC: BaseVC {
     // MArk: - 懒加载
+    private var wbdataModelArray  = [WBDataInfoModel]()
     private  var publishBtnSelected : Bool = false // 发布按钮的点击状态
     private lazy var  presentAnimationor  : PresentAnimationor = PresentAnimationor()
     lazy  var  publishPresentVC = PresentVC(showType: PresentVCType.table) //发布按钮弹窗
@@ -28,7 +29,9 @@ class MainVC: BaseVC {
     
     func requestData() {
       let   token = UserDefaults.standard.string(forKey: accessToken)
-        netManager.requestWBData(methodType: .GET, parameters: ["access_token":token as AnyObject]) { (data, error) in
+        netManager.requestWBData(methodType: .GET, parameters: ["access_token":token as AnyObject]) {[weak self] (data, error) in
+            self!.wbdataModelArray = data as! [WBDataInfoModel]
+            self!.tableView?.reloadData()
             if error != nil{print(data as Any)}
         }
     }
@@ -101,23 +104,36 @@ extension MainVC: UITableViewDelegate,UITableViewDataSource{
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 25
+        return wbdataModelArray.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        var   cell :UITableViewCell  ;
-        if indexPath.row % 4 == 1 {
-          cell =  tableView.dequeueReusableCell(withIdentifier: originalVideCell, for: indexPath)
-        }else if indexPath.row % 4 == 2{
-            cell =    tableView.dequeueReusableCell(withIdentifier: originalTextCell, for: indexPath)
-        }else if indexPath.row % 4 == 3{
-            cell =    tableView.dequeueReusableCell(withIdentifier: originalThreeImgCell, for: indexPath)
+        var   cell :UITableViewCell;
+         let wbDataModel = wbdataModelArray[indexPath.row]
+        if  (wbDataModel.imagesUrl?.count)! == 0 {
+            cell =  tableView.dequeueReusableCell(withIdentifier: originalTextCell, for: indexPath) as! WBOriginalOnlyTextCell
+        }else  if (wbDataModel.imagesUrl?.count)! <= 3 && (wbDataModel.imagesUrl?.count)! > 1 {
+              cell =    tableView.dequeueReusableCell(withIdentifier: originalThreeImgCell, for: indexPath)
+        }else  if (wbDataModel.imagesUrl?.count)! <= 6 && (wbDataModel.imagesUrl?.count)! > 3{
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalSixImgCell, for: indexPath)
+        }else if (wbDataModel.imagesUrl?.count)! <= 9 && (wbDataModel.imagesUrl?.count)! > 6{
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalNineImgCell, for: indexPath)
+        }else if (wbDataModel.imagesUrl?.count)! == 1{
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalOneImgCell, for: indexPath)
         }else{
-              cell =    tableView.dequeueReusableCell(withIdentifier: originalOneImgCell, for: indexPath)
+            cell =    tableView.dequeueReusableCell(withIdentifier: originalVideCell, for: indexPath)
         }
-        
-      // cell.separatorInset = UIEdgeInsets(top: 10, left: 0, bottom: 10, right: 0)
-        cell.selectionStyle = .none
+          cell.setWBDataWithModel(model:wbDataModel )
+//        if indexPath.row % 4 == 1 {
+//          cell =  tableView.dequeueReusableCell(withIdentifier: originalVideCell, for: indexPath)
+//        }else if indexPath.row % 4 == 2{
+//
+//        }else if indexPath.row % 4 == 3{
+//            cell =    tableView.dequeueReusableCell(withIdentifier: originalThreeImgCell, for: indexPath)
+//        }else{
+//              cell =    tableView.dequeueReusableCell(withIdentifier: originalOneImgCell, for: indexPath)
+//        }
+            cell.selectionStyle = .none
         return cell
     }
 }
@@ -183,6 +199,9 @@ extension MainVC {
         tableView.register(WBOriginalOnlyTextCell.self, forCellReuseIdentifier: originalTextCell)
         tableView.register(WBOriginalOneImageCell.self, forCellReuseIdentifier: originalOneImgCell)
         tableView.register(WBOriginalThreeImgCell.self, forCellReuseIdentifier: originalThreeImgCell)
+         tableView.register(WBOriginalSixImgCell.self, forCellReuseIdentifier: originalSixImgCell)
+        tableView.register(WBOriginalNineImgCell.self, forCellReuseIdentifier: originalNineImgCell)
+
         return tableView
     }
 }
