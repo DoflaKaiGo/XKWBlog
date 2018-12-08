@@ -14,10 +14,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate {
 
     var window: UIWindow?
     //APPKEY : 761252307
-
+    var rootVC = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController()
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         WeiboSDK.enableDebugMode(true)
         WeiboSDK.registerApp(AppKey)
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.rootViewController = rootVC
+        window?.makeKeyAndVisible()
+
         return true
     }
     func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
@@ -43,6 +48,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate,WeiboSDKDelegate {
                   UserDefaults.standard.set(time, forKey: experiateDate)
                  UserDefaults.standard.set(accesstoken, forKey: accessToken)
                 print(userInfo)
+                 UIApplication.shared.keyWindow?.rootViewController = WelcomeVC()
             }
         }
     }

@@ -39,12 +39,14 @@ class WBOriginalOnlyTextCell: UITableViewCell {
     }
     
    override func setWBDataWithModel(model:WBDataInfoModel){
-    DispatchQueue.global().async {
-        let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
-        DispatchQueue.main.async {
-            self.headImgView.image = UIImage(data:headimgData)
-        }
-    }
+//    DispatchQueue.global().async {
+//        let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+//        DispatchQueue.main.async {
+//            self.headImgView.image = UIImage(data:headimgData)
+//        }
+//    }
+    let url = URL(string: model.user.userHeadImgUrl)
+    self.headImgView.af_setImage(withURL:url! , placeholderImage: #imageLiteral(resourceName: "back_me"))
         shareBtn.setTitle(String(model.reposts_count), for: .normal)
         commentBtn.setTitle(String(model.comments_count), for: .normal)
         supportBtn.setTitle(String(model.attitudes_count), for: .normal)

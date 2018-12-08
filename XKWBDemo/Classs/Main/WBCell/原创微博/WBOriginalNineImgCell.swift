@@ -32,6 +32,11 @@ class WBOriginalNineImgCell: UITableViewCell {
     lazy var imgEight  = UIImageView()
     lazy var imgNine  = UIImageView()
     lazy var footerView = UIView()
+    private var imgVs:[UIImageView] {
+        get {
+            return  [imgOne,imgTwo,imgThree,imgFour,imgFive,imgSix,imgSeven,imgEight,imgNine]
+        }
+    }
     let imgWidth = (ScreenInfo.ScreenWidth - 30)/3
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -50,26 +55,26 @@ class WBOriginalNineImgCell: UITableViewCell {
     }
     
     override func setWBDataWithModel(model:WBDataInfoModel){
-        var imageSdataArray = [Data]()
-        DispatchQueue.global().async {
-             let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
-            for imgStr in model.imagesUrl!{
-                let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
-                imageSdataArray.append(imgData)
-            }
-            DispatchQueue.main.async {
-                  self.headImgView.image = UIImage(data:headimgData)
-                self.imgOne.image = UIImage(data:imageSdataArray[0] )
-                self.imgTwo.image = UIImage(data:imageSdataArray[1] )
-                self.imgThree.image = UIImage(data:imageSdataArray[2] )
-                self.imgFour.image = UIImage(data:imageSdataArray[3] )
-                self.imgFive.image = UIImage(data:imageSdataArray[4] )
-                self.imgSix.image = UIImage(data:imageSdataArray[5] )
-                self.imgSeven.image = UIImage(data:imageSdataArray[6] )
-                self.imgEight.image = UIImage(data:imageSdataArray[7] )
-                self.imgNine.image = UIImage(data:imageSdataArray[8] )
-            }
+//        var imageSdataArray = [Data]()
+//        DispatchQueue.global().async {
+//             let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+//            for imgStr in model.imagesUrl!{
+//                let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
+//                imageSdataArray.append(imgData)
+//            }
+//            DispatchQueue.main.async {
+//                  self.headImgView.image = UIImage(data:headimgData)
+//                for (index,value) in imageSdataArray.enumerated(){
+//                    self.imgVs[index].image = UIImage(data:value )
+//                }
+//            }
+//        }
+        for (index,value) in model.imagesUrl!.enumerated(){
+            self.imgVs[index].af_setImage(withURL:URL(string: value)! , placeholderImage: #imageLiteral(resourceName: "mainButton"))
         }
+        let url = URL(string: model.user.userHeadImgUrl)
+        self.headImgView.af_setImage(withURL:url! , placeholderImage: #imageLiteral(resourceName: "mainButton"))
+        
         shareBtn.setTitle(String(model.reposts_count), for: .normal)
         commentBtn.setTitle(String(model.comments_count), for: .normal)
         supportBtn.setTitle(String(model.attitudes_count), for: .normal)

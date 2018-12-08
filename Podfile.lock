@@ -1,16 +1,20 @@
 PODS:
   - Alamofire (4.8.0)
+  - AlamofireImage (3.5.0):
+    - Alamofire (~> 4.8)
   - SnapKit (4.2.0)
   - Weibo_SDK (3.2.3)
 
 DEPENDENCIES:
   - Alamofire
+  - AlamofireImage
   - SnapKit
   - Weibo_SDK (from `https://github.com/sinaweibosdk/weibo_ios_sdk.git`)
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - AlamofireImage
     - SnapKit
 
 EXTERNAL SOURCES:
@@ -24,9 +28,10 @@ CHECKOUT OPTIONS:
 
 SPEC CHECKSUMS:
   Alamofire: 3ec537f71edc9804815215393ae2b1a8ea33a844
+  AlamofireImage: 1aea346f4dda2f6c67622fa5a89fcbb80d79cc16
   SnapKit: fe8a619752f3f27075cc9a90244d75c6c3f27e2a
   Weibo_SDK: 652ca78c2f7147a5de5e75e7cbea89838a81772a
 
-PODFILE CHECKSUM: a2e5ed8ff160ebe6bbc1084b2a63f7a02c22cc09
+PODFILE CHECKSUM: 44700c8b7c0648380843c64b062e6b1d9dcaa588
 
 COCOAPODS: 1.6.0.beta.2

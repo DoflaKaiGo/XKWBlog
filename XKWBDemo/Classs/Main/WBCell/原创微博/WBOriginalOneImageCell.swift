@@ -38,18 +38,22 @@ class WBOriginalOneImageCell: UITableViewCell {
         setSubViewsData()
     }
     override func setWBDataWithModel(model:WBDataInfoModel){
-        var imageSdataArray = [Data]()
-        DispatchQueue.global().async {
-            let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
-            for imgStr in model.imagesUrl!{
-                let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
-                imageSdataArray.append(imgData)
-            }
-            DispatchQueue.main.async {
-                self.headImgView.image = UIImage(data:headimgData)
-                self.pictureImg.image = UIImage(data:imageSdataArray[0] )
-            }
-        }
+ //       var imageSdataArray = [Data]()
+//        DispatchQueue.global().async {
+//            let headimgData = try! NSData(contentsOf:NSURL(string: model.user.userHeadImgUrl)! as URL) as Data
+//            for imgStr in model.imagesUrl!{
+//                let imgData = try! NSData(contentsOf:NSURL(string: imgStr)! as URL) as Data
+//                imageSdataArray.append(imgData)
+//            }
+//            DispatchQueue.main.async {
+//                self.headImgView.image = UIImage(data:headimgData)
+//                self.pictureImg.image = UIImage(data:imageSdataArray[0] )
+//            }
+//        }
+        
+        let url = URL(string: model.user.userHeadImgUrl)
+        self.headImgView.af_setImage(withURL:url! , placeholderImage: #imageLiteral(resourceName: "back_me"))
+        self.pictureImg.af_setImage(withURL:URL(string: (model.imagesUrl?.first)!)! , placeholderImage: #imageLiteral(resourceName: "mainButton"))
         shareBtn.setTitle(String(model.reposts_count), for: .normal)
         commentBtn.setTitle(String(model.comments_count), for: .normal)
         supportBtn.setTitle(String(model.attitudes_count), for: .normal)

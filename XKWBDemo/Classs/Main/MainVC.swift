@@ -160,7 +160,7 @@ extension MainVC{
 extension MainVC {
     private func setupCollectionViewLayout() -> UICollectionViewLayout{
         let layout = UICollectionViewFlowLayout.init()
-        layout.itemSize = CGSize(width: 80, height: 100)
+        layout.itemSize = CGSize(width: (ScreenInfo.ScreenWidth - 60)/5, height: 100)
         layout.minimumLineSpacing = 5
         layout.minimumInteritemSpacing = 5
         layout.scrollDirection = .horizontal

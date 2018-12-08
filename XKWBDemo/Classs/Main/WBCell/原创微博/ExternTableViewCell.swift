@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AlamofireImage
 extension UITableViewCell {
   @objc  func setWBDataWithModel(model:WBDataInfoModel){}
 }

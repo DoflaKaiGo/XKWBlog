@@ -36,6 +36,7 @@ extension NetworkTools {
         if methodType == .GET{
             Alamofire.request(requestWeiboUrl, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
                 if let jsondata = response.result.value {
+               //     print(jsondata)
                    let WBDataDic =   jsondata as! Dictionary<String,AnyObject>
                     let WBDataArray  = WBDataDic["statuses"] as! [[String:AnyObject]];
                     for  dic: [String:AnyObject] in WBDataArray {
@@ -48,14 +49,14 @@ extension NetworkTools {
         }
 }
     //请求用户数据
-    func requestUserData(methodType : RequestType,  parameters : [String : AnyObject], finished : @escaping (_ result : AnyObject?, _ error : NSError?) -> ()) -> () {
+    func requestUserData(methodType : RequestType,  parameters : [String : AnyObject], finished : @escaping (_ result : UserInfoModel?, _ error : NSError?) -> ()) -> () {
            if methodType == .GET{
             Alamofire.request(requestUserInfoUrl, parameters: parameters, encoding: URLEncoding.default).responseJSON { response in
                 if let json = response.result.value {
                     let userDic = json as? Dictionary<String, AnyObject>
                     let userInfoModel = UserInfoModel(userDic: userDic!)
                     print(json)
-                    finished(userInfoModel as AnyObject,nil)
+                    finished(userInfoModel,nil)
                 }
             }
         }

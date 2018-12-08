@@ -60,6 +60,7 @@
 		C1BA983A21B82BC400938296 /* WBDataInfoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983921B82BC400938296 /* WBDataInfoModel.swift */; };
 		C1BA983C21B8F6FF00938296 /* ExternTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983B21B8F6FF00938296 /* ExternTableViewCell.swift */; };
 		C1BA983E21B8F9A700938296 /* WBOriginalNineImgCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983D21B8F9A700938296 /* WBOriginalNineImgCell.swift */; };
+		C1BA984121BA136000938296 /* WelcomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = C1BA983F21BA136000938296 /* WelcomeVC.swift */; };
 		C372056B073F2675563EC960 /* Pods_XKWBDemo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3D50CD97575D286CB8366701 /* Pods_XKWBDemo.framework */; };
 /* End PBXBuildFile section */
 
@@ -124,6 +125,7 @@
 		C1BA983921B82BC400938296 /* WBDataInfoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBDataInfoModel.swift; sourceTree = "<group>"; };
 		C1BA983B21B8F6FF00938296 /* ExternTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExternTableViewCell.swift; sourceTree = "<group>"; };
 		C1BA983D21B8F9A700938296 /* WBOriginalNineImgCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WBOriginalNineImgCell.swift; sourceTree = "<group>"; };
+		C1BA983F21BA136000938296 /* WelcomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeVC.swift; sourceTree = "<group>"; };
 		E1F5B6DB3046496654F2508D /* Pods-XKWBDemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-XKWBDemo.debug.xcconfig"; path = "Pods/Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -226,6 +228,7 @@
 				C10F94E421AFBB2600C59409 /* MainVC.storyboard */,
 				C10F94E021AFB84A00C59409 /* MainVC.swift */,
 				C10F94F521AFE01C00C59409 /* View */,
+				C1BA983F21BA136000938296 /* WelcomeVC.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -483,6 +486,7 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-XKWBDemo/Pods-XKWBDemo-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/AlamofireImage/AlamofireImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -490,6 +494,7 @@
 			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -569,6 +574,7 @@
 				C18ECB9A21B618270072FEE0 /* WBVideoCell.swift in Sources */,
 				C10F94DB21AFB7EA00C59409 /* DiscoverVC.swift in Sources */,
 				C18ECBA121B654480072FEE0 /* WBOriginalOnlyTextCell.swift in Sources */,
+				C1BA984121BA136000938296 /* WelcomeVC.swift in Sources */,
 				C18ECB8E21B4C1160072FEE0 /* FocusIteam.swift in Sources */,
 				C18ECB7D21B12E5A0072FEE0 /* CommonHelper.swift in Sources */,
 				C18ECBA621B7545E0072FEE0 /* WBOriginalOneImageCell.swift in Sources */,
